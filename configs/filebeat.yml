@@ -1,0 +1,17 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/auth.log
+
+setup.kibana:
+  host: "localhost:5601"
+
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
+logging.level: info
