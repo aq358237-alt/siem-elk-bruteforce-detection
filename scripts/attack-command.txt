@@ -1,0 +1,46 @@
+1) Create failed SSH attempts (manual)
+
+From your attacker VM (Kali), try logging in with a wrong password a few times:
+
+ssh wronguser@<ubuntu-ip>
+
+or
+
+ssh <valid-username>@<ubuntu-ip>
+
+👉 Enter incorrect passwords repeatedly (10–20 times)
+
+2) Automate failed attempts (safe script)
+
+Create a simple loop:
+
+for i in {1..20}; do ssh <username>@<ubuntu-ip>; done
+
+👉 Just press wrong password each time (or cancel quickly)
+
+3) Verify logs on Ubuntu
+grep "Failed password" /var/log/auth.log
+
+You’ll see:
+
+Failed login attempts
+Source IP (Kali)
+📊 Detection in SIEM (important part)
+
+In Kibana → Discover:
+
+Search:
+
+Failed password
+
+🚨 Detection Logic (use in your report)
+
+Instead of focusing on attack tool, focus on detection:
+
+Multiple failed logins
+Same IP repeatedly
+Short time window
+
+Example rule idea:
+
+IF failed_logins > 5 within 1 minute → alert
