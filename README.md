@@ -1,30 +1,36 @@
-# SIEM Project: SSH Brute Force Detection
 
-## Overview
-This project demonstrates detection of SSH brute-force attacks using a SIEM setup.
 
-## Lab Setup
+
+# SIEM Project: SSH Brute Force Detection using ELK Stack
+
+## 🔥 Overview
+This project demonstrates detection of SSH brute-force attacks using ELK Stack in a virtual lab.
+
+## 🧱 Lab Setup
 - Kali Linux (Attacker)
-- Ubuntu (Target)
+- Ubuntu (Target + SIEM)
 - ELK Stack
+- Filebeat
 
-## Attack
-Hydra was used to perform brute-force attack on SSH.
+## ⚙️ Architecture
+Kali → SSH Attack → Ubuntu → Logs → ELK → Detection
 
-## Detection
-Logs from /var/log/auth.log were analyzed to detect failed login attempts.
+## ⚔️ Attack Simulation
+hydra -l <username> -P passwords.txt ssh://<target-ip>
 
-## Screenshots
+## 📊 Detection
+Logs analyzed from:
+/var/log/auth.log
 
-### Hydra Attack
-![Hydra](screenshots/hydra-attack.png)
+Detected:
+- Failed password attempts
+- Attacker IP
 
-### Logs
-![Logs](screenshots/ssh-logs.png)
+## 📸 Screenshots
+(Add your images here)
 
-### Failed Attempts
-![Failed](screenshots/failed-logins.png)
+## 🚀 Result
+Successfully detected brute-force attack using SIEM.
 
-### Kibana
-![Kibana](screenshots/kibana-dashboard.png)
-
+## 🧠 Skills
+SIEM | ELK | Log Analysis | Cybersecurity
