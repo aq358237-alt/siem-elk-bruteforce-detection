@@ -25,6 +25,18 @@ Detected:
 - Attacker IP
 
 ## 📸 Screenshots
+
+### Hydra Attack
+![Hydra Attack](screenshots/hydra-attack.png)
+
+### SSH Logs
+![SSH Logs](screenshots/ssh-logs.png)
+
+### Failed Logins
+![Failed Logins](screenshots/failed-logins.png)
+
+### Kibana Dashboard
+![Kibana](screenshots/kibana-dashboard.png)
 (Add your images here)
 
 ## 🚀 Result
